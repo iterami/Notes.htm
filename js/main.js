@@ -5,7 +5,7 @@ function repo_init(){
       'events': {
         'notes': {
           'onblur': function(){
-              if(this.value.length > 0
+              if(this.value.length
                 && !this.value.endsWith('\n')){
                   this.value += '\n';
               }
