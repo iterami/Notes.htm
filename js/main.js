@@ -42,4 +42,9 @@ function repo_init(){
       },
       'title': 'Notes.htm',
     });
+
+    if(globalThis.innerHeight > 400){
+        const textarea = document.getElementById('notes');
+        textarea.style.height = globalThis.innerHeight - 200 + 'px';
+    }
 }
