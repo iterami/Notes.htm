@@ -33,9 +33,19 @@ function repo_init(){
               element.scrollTop = 0;
           },
         },
+        'sort': {
+          'onclick': function(){
+              if(!globalThis.confirm('Sort all lines?')){
+                  return;
+              }
+
+              const element = document.getElementById('notes');
+              element.value = element.value.split('\n').sort().join('\n');
+          },
+        },
       },
       'info': '<textarea id=notes></textarea><br>'
-        + '<input id=select-start type=button value=Start><input id=select-end type=button value=End>',
+        + '<input id=select-start type=button value=Start><input id=sort type=button value=Sort><input id=select-end type=button value=End>',
       'menu': true,
       'storage': {
         'notes': '',
