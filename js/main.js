@@ -44,8 +44,8 @@ function repo_init(){
           },
         },
       },
-      'info': '<textarea id=notes></textarea><br>'
-        + '<input id=select-start type=button value=Start><input id=sort type=button value=Sort><input id=select-end type=button value=End>',
+      'info': '<input id=select-start type=button value=Start><input id=sort type=button value="Sort All"><input id=select-end type=button value=End><br>'
+        + '<textarea id=notes></textarea>',
       'menu': true,
       'storage': {
         'notes': '',
