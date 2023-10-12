@@ -47,6 +47,7 @@ function repo_init(){
       'info': '<input id=select-start type=button value=Start><input id=sort type=button value="Sort All"><input id=select-end type=button value=End><br>'
         + '<textarea id=notes></textarea>',
       'menu': true,
+      'menu-lock': true,
       'storage': {
         'notes': '',
       },
