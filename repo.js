@@ -3,6 +3,13 @@
 function repo_init(){
     core_repo_init({
       'events': {
+        'copy': {
+          'onclick': function(){
+              const element = document.getElementById('notes');
+              navigator.clipboard.writeText(element.value);
+              element.focus();
+          },
+        },
         'notes': {
           'onblur': function(){
               if(this.value.length
@@ -44,7 +51,7 @@ function repo_init(){
           },
         },
       },
-      'info': '<input id=select-start type=button value=Start><input id=sort type=button value="Sort All"><input id=select-end type=button value=End><br>'
+      'info': '<input id=sort type=button value="Sort All"><input id=select-start type=button value=Start><input id=select-end type=button value=End><input id=copy type=button value=Copy><br>'
         + '<textarea id=notes></textarea>',
       'menu': true,
       'menu-lock': true,
