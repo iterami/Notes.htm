@@ -51,7 +51,7 @@ function repo_init(){
           },
         },
       },
-      'info': '<input id=sort type=button value="Sort All"><input id=select-start type=button value=Start><input id=select-end type=button value=End><input id=copy type=button value=Copy><br>'
+      'info': '<input id=copy type=button value=Copy><input id=sort type=button value=Sort> <input id=select-start type=button value=Start><input id=select-end type=button value=End><br>'
         + '<textarea id=notes></textarea>',
       'menu': true,
       'menu-lock': true,
@@ -61,11 +61,20 @@ function repo_init(){
       'title': 'Notes.htm',
     });
 
+    resize_textarea();
+    globalThis.onresize = resize_textarea;
+}
+
+function resize_textarea(){
     const textarea = document.getElementById('notes');
-    if(globalThis.innerHeight > 390){
-        textarea.style.height = globalThis.innerHeight - 200 + 'px';
-    }
-    if(globalThis.innerWidth > 540){
-        textarea.style.width = globalThis.innerWidth - 50 + 'px';
-    }
+    const height = Math.max(
+      globalThis.innerHeight - 200,
+      390
+    );
+    const width = Math.max(
+      globalThis.innerWidth - 50,
+      540
+    );
+    textarea.style.height = height + 'px';
+    textarea.style.width = width + 'px';
 }
