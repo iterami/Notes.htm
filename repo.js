@@ -68,8 +68,8 @@ function repo_init(){
 function resize_textarea(){
     const textarea = document.getElementById('notes');
     textarea.style.height = Math.max(
-      globalThis.innerHeight - 200,
+      globalThis.innerHeight - 170,
       50
     ) + 'px';
-    textarea.style.width = (globalThis.innerWidth - 50) + 'px';
+    textarea.style.width = (globalThis.innerWidth - 20) + 'px';
 }
