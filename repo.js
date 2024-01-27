@@ -10,14 +10,6 @@ function repo_init(){
               element.focus();
           },
         },
-        'notes': {
-          'onblur': function(){
-              if(this.value.length
-                && !this.value.endsWith('\n')){
-                  this.value += '\n';
-              }
-          },
-        },
         'select-end': {
           'onclick': function(){
               const element = document.getElementById('notes');
