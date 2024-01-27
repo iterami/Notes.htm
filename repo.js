@@ -45,7 +45,6 @@ function repo_init(){
       },
       'info': '<button id=copy type=button>Copy</button><button id=sort type=button>Sort</button> <button id=select-start type=button>Start</button><button id=select-end type=button>End</button><br>'
         + '<textarea id=notes></textarea>',
-      'menu': true,
       'menu-lock': true,
       'storage': {
         'notes': '',
