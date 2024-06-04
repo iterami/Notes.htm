@@ -5,31 +5,28 @@ function repo_init(){
       'events': {
         'copy': {
           'onclick': function(){
-              const element = document.getElementById('notes');
-              navigator.clipboard.writeText(element.value);
-              element.focus();
+              navigator.clipboard.writeText(core_elements['notes'].value);
+              core_elements['notes'].focus();
           },
         },
         'select-end': {
           'onclick': function(){
-              const element = document.getElementById('notes');
-              const textarea_end = element.value.length;
-              element.focus();
-              element.setSelectionRange(
+              const textarea_end = core_elements['notes'].value.length;
+              core_elements['notes'].focus();
+              core_elements['notes'].setSelectionRange(
                 textarea_end,
                 textarea_end
               );
-              element.scrollLeft = 0;
-              element.scrollTop = element.scrollHeight;
+              core_elements['notes'].scrollLeft = 0;
+              core_elements['notes'].scrollTop = core_elements['notes'].scrollHeight;
           },
         },
         'select-start': {
           'onclick': function(){
-              const element = document.getElementById('notes');
-              element.focus();
-              element.setSelectionRange(0, 0);
-              element.scrollLeft = 0;
-              element.scrollTop = 0;
+              core_elements['notes'].focus();
+              core_elements['notes'].setSelectionRange(0, 0);
+              core_elements['notes'].scrollLeft = 0;
+              core_elements['notes'].scrollTop = 0;
           },
         },
         'sort': {
@@ -38,8 +35,7 @@ function repo_init(){
                   return;
               }
 
-              const element = document.getElementById('notes');
-              element.value = element.value.split('\n').sort().join('\n');
+              core_elements['notes'].value = core_elements['notes'].value.split('\n').sort().join('\n');
           },
         },
       },
@@ -50,6 +46,9 @@ function repo_init(){
         'notes': '',
       },
       'title': 'Notes.htm',
+      'ui-elements': [
+        'notes',
+      ],
     });
 
     resize_textarea();
@@ -57,7 +56,7 @@ function repo_init(){
 }
 
 function resize_textarea(){
-    const style = document.getElementById('notes').style;
+    const style = core_elements['notes'].style;
     style.height = Math.max(
       globalThis.innerHeight - 170,
       50
