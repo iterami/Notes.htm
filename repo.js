@@ -56,10 +56,13 @@ function repo_init(){
 }
 
 function resize_textarea(){
-    const style = core_elements['notes'].style;
+    const notes = core_elements['notes'];
+    const style = notes.style;
     style.height = Math.max(
       globalThis.innerHeight - 170,
       50
     ) + 'px';
     style.width = (globalThis.innerWidth - 20) + 'px';
+    notes.blur();
+    notes.focus();
 }
