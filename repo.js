@@ -63,6 +63,4 @@ function resize_textarea(){
       50
     ) + 'px';
     style.width = (globalThis.innerWidth - 20) + 'px';
-    notes.blur();
-    notes.focus();
 }
