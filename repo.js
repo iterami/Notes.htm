@@ -9,10 +9,10 @@ function repo_init(){
               core_elements['notes'].focus();
           },
         },
-        'select-end': {
+        'end': {
           'onclick': function(){
-              const textarea_end = core_elements['notes'].value.length;
               core_elements['notes'].focus();
+              const textarea_end = core_elements['notes'].value.length;
               core_elements['notes'].setSelectionRange(
                 textarea_end,
                 textarea_end
@@ -21,7 +21,16 @@ function repo_init(){
               core_elements['notes'].scrollTop = core_elements['notes'].scrollHeight;
           },
         },
-        'select-start': {
+        'sort': {
+          'onclick': function(){
+              if(globalThis.confirm('Sort all lines?')){
+                  core_elements['notes'].value = core_elements['notes'].value.split('\n').sort().join('\n');
+              }
+
+              core_elements['notes'].focus();
+          },
+        },
+        'start': {
           'onclick': function(){
               core_elements['notes'].focus();
               core_elements['notes'].setSelectionRange(0, 0);
@@ -29,18 +38,8 @@ function repo_init(){
               core_elements['notes'].scrollTop = 0;
           },
         },
-        'sort': {
-          'onclick': function(){
-              if(!globalThis.confirm('Sort all lines?')){
-                  return;
-              }
-
-              core_elements['notes'].value = core_elements['notes'].value.split('\n').sort().join('\n');
-          },
-        },
       },
-      'info': '<button id=copy type=button>Copy</button><button id=sort type=button>Sort</button> <button id=select-start type=button>Start</button><button id=select-end type=button>End</button><br>'
-        + '<textarea id=notes></textarea>',
+      'info': '<button id=copy type=button>Copy</button><button id=sort type=button>Sort</button> <button id=start type=button>Start</button><button id=end type=button>End</button><br><textarea id=notes></textarea>',
       'menu-lock': true,
       'storage': {
         'notes': '',
@@ -56,11 +55,9 @@ function repo_init(){
 }
 
 function resize_textarea(){
-    const notes = core_elements['notes'];
-    const style = notes.style;
-    style.height = Math.max(
+    core_elements['notes'].style.height = Math.max(
       globalThis.innerHeight - 170,
       50
     ) + 'px';
-    style.width = (globalThis.innerWidth - 20) + 'px';
+    core_elements['notes'].style.width = (globalThis.innerWidth - 20) + 'px';
 }
