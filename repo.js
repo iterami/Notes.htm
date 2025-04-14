@@ -21,6 +21,11 @@ function repo_init(){
               core_elements['notes'].scrollTop = core_elements['notes'].scrollHeight;
           },
         },
+        'notes': {
+          'onblur': function(){
+              core_storage_save(['notes']);
+          },
+        },
         'sort': {
           'onclick': function(){
               if(globalThis.confirm('Sort all lines?')){
