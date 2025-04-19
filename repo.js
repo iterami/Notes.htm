@@ -55,7 +55,6 @@ function repo_init(){
       ],
     });
 
-    core_elements['notes'].style.marginLeft = '-8px';
     resize_textarea();
     globalThis.onresize = resize_textarea;
 }
@@ -65,5 +64,5 @@ function resize_textarea(){
       globalThis.innerHeight - 170,
       50
     ) + 'px';
-    core_elements['notes'].style.width = (globalThis.innerWidth - 20) + 'px';
+    core_elements['notes'].style.width = globalThis.innerWidth + 'px';
 }
