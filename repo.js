@@ -50,7 +50,7 @@ function repo_init(){
         'notes': '',
       },
       'title': 'Notes.htm',
-      'ui-elements': [
+      'ui_elements': [
         'notes',
       ],
     });
