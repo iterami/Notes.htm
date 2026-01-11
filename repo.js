@@ -23,7 +23,10 @@ function repo_init(){
         },
         'notes': {
           'onblur': function(){
-              core_storage_save(['notes']);
+              core_storage_save({
+                'keys': ['notes'],
+                'rebind': false,
+              });
           },
         },
         'sort': {
