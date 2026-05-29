@@ -59,6 +59,9 @@ function repo_init(){
     });
 
     core_tab_switch('tab_repo');
+    core_elements.core_ui.style.inset = 0;
+    core_elements.notes.style.width = '100%';
+
     resize_textarea();
     globalThis.onresize = resize_textarea;
 }
@@ -68,5 +71,4 @@ function resize_textarea(){
       globalThis.innerHeight - 140,
       50
     ) + 'px';
-    core_elements.notes.style.width = globalThis.innerWidth + 'px';
 }
