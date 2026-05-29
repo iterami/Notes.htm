@@ -47,19 +47,16 @@ function repo_init(){
           },
         },
       },
-      'info': '<button id=copy type=button>Copy</button><button id=sort type=button>Sort</button> <button id=start type=button>Start</button><button id=end type=button>End</button><br><textarea id=notes></textarea>',
-      'menu_lock': true,
       'storage': {
         'notes': '',
       },
       'title': 'Notes.htm',
+      'ui': '<button id=copy type=button>Copy</button><button id=sort type=button>Sort</button> <button id=start type=button>Start</button><button id=end type=button>End</button>',
       'ui_elements': [
         'notes',
       ],
     });
 
-    core_tab_switch('tab_repo');
-    core_elements.core_ui.style.inset = 0;
     core_elements.notes.style.width = '100%';
 
     resize_textarea();
@@ -67,8 +64,10 @@ function repo_init(){
 }
 
 function resize_textarea(){
+    const style = globalThis.getComputedStyle(core_elements.notes);
+
     core_elements.notes.style.height = Math.max(
-      globalThis.innerHeight - 140,
+      globalThis.innerHeight - globalThis.parseFloat(style.fontSize) * 2,
       50
     ) + 'px';
 }
