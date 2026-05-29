@@ -58,13 +58,14 @@ function repo_init(){
       ],
     });
 
+    core_tab_switch('tab_repo');
     resize_textarea();
     globalThis.onresize = resize_textarea;
 }
 
 function resize_textarea(){
     core_elements.notes.style.height = Math.max(
-      globalThis.innerHeight - 170,
+      globalThis.innerHeight - 140,
       50
     ) + 'px';
     core_elements.notes.style.width = globalThis.innerWidth + 'px';
