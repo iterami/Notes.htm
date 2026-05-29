@@ -3,6 +3,12 @@
 function repo_init(){
     core_repo_init({
       'events': {
+        'save': {
+          'onclick': function(){
+              core_storage_save();
+              core_elements.notes.focus();
+          },
+        },
         'notes': {
           'onblur': function(){
               core_storage_save({
@@ -16,6 +22,7 @@ function repo_init(){
         'notes': '',
       },
       'title': 'Notes.htm',
+      'ui': '<button id=save>Save</button>',
       'ui_elements': [
         'notes',
       ],
