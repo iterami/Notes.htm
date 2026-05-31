@@ -5,12 +5,6 @@ function repo_init(){
       'events': {
         'save': {
           'onclick': function(){
-              core_storage_save();
-              core_elements.notes.focus();
-          },
-        },
-        'notes': {
-          'onblur': function(){
               core_storage_save({
                 'keys': ['notes'],
                 'rebind': false,
